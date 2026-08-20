@@ -12,28 +12,33 @@ Free and private. Your files stay on your device.
 - Unlinked mentions
 - Graph view of notes
 - Daily notes
-- Templates
 - Cross platform (Android, Windows, Linux, macOS)
 
-## Desktop Setup
-
-### Requirements
-
-- Flutter 3.24 or newer
-- For Windows: Visual Studio with Desktop development
-- For Linux: required system libraries
-- For macOS: Xcode
-
-### Build and Run
+## First Time Setup
 
 ```bash
 git clone https://github.com/AdnanRaza88/AetherVault.git
 cd AetherVault
+flutter create . --project-name aether_vault
 flutter pub get
+```
+
+This generates the android, windows, linux and macos folders required for building.
+
+## Desktop
+
+### Requirements
+
+- Flutter 3.24 or newer
+- Windows: Visual Studio with Desktop development workload
+- Linux: clang, cmake, ninja, gtk development packages
+- macOS: Xcode
+
+### Run
+
+```bash
 flutter run -d windows
-# or
 flutter run -d linux
-# or
 flutter run -d macos
 ```
 
@@ -45,15 +50,14 @@ flutter build linux
 flutter build macos
 ```
 
-The output will be in the build folder.
+Output is inside the build folder.
 
-## Android Setup
+## Android
 
 ### Requirements
 
 - Flutter
-- Android Studio
-- Android SDK
+- Android Studio with Android SDK
 
 ### Build APK
 
@@ -61,9 +65,9 @@ The output will be in the build folder.
 flutter build apk --release
 ```
 
-APK location: build/app/outputs/flutter-apk/app-release.apk
+APK path: build/app/outputs/flutter-apk/app-release.apk
 
-### Install on device
+### Install
 
 ```bash
 adb install build/app/outputs/flutter-apk/app-release.apk
@@ -71,26 +75,11 @@ adb install build/app/outputs/flutter-apk/app-release.apk
 
 ## GitHub Actions
 
-The repository includes workflows to build Android APK and desktop packages on every release tag.
+Workflow .github/workflows/build-apk.yml builds a release APK on tag push (v*) or manual trigger. Download the artifact from the Actions tab.
 
-## Project Structure
+## Icon
 
-```
-lib/
-  main.dart
-  models/
-    note.dart
-  services/
-    vault_service.dart
-  screens/
-    home_screen.dart
-    note_editor.dart
-    graph_view.dart
-  widgets/
-    sidebar.dart
-    backlinks_panel.dart
-    wikilink_text.dart
-```
+App icon source is at assets/icon.svg. Replace platform icons after running flutter create.
 
 ## License
 
