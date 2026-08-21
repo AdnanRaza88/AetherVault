@@ -24,6 +24,9 @@ jobs:
           flutter-version: '3.24.5'
           channel: 'stable'
 
+      - name: Generate platform folders
+        run: flutter create . --project-name aether_vault --org com.aethervault
+
       - name: Get dependencies
         run: flutter pub get
 
