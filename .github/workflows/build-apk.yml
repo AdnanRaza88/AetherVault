@@ -27,6 +27,11 @@ jobs:
       - name: Generate platform folders
         run: flutter create . --project-name aether_vault --org com.aethervault
 
+      - name: Set compileSdk to 35
+        run: |
+          sed -i 's/compileSdk = .*/compileSdk = 35/' android/app/build.gradle
+          sed -i 's/compileSdkVersion .*/compileSdkVersion 35/' android/app/build.gradle || true
+
       - name: Get dependencies
         run: flutter pub get
 
