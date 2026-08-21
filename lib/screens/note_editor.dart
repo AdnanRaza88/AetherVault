@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../services/vault_service.dart';
 import '../widgets/backlinks_panel.dart';
 import '../widgets/wikilink_text.dart';
+import 'graph_view.dart';
 
 class NoteEditor extends StatefulWidget {
   final String noteId;
